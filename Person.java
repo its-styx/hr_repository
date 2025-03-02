@@ -47,4 +47,9 @@ class Person
 		Person p = (Person) o;
 		return this.name.equals(p.name) && this.height == p.height && this.weight == p.weight;
 	}
+	
+	public int compareTo(Person p)
+	{
+		
+	}
 }
