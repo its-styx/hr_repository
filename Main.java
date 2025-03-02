@@ -49,8 +49,11 @@ public class Main
 		Person test = new Person("Jesus Christ", 155, 90); // creates Jesus Christ
 		System.out.println("Test: " + test); // test print
 		
-		PersonSet personSet = new PersonSet(); // creates set
-		personSet.add(test); // sets Jesus Christ
+		PersonOrderedSet orderedSet = new PersonOrderedSet(); // creates ordered set
+		PersonImperialSet impSet = new PersonImperialSet(); // creates imperial set
+		
+		orderedSet.add(test); // sets Jesus Christ, but in order
+		impSet.add(test) // sets Jesus Christ, but from the empire
 		
 		try
 		{
