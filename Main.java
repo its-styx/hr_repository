@@ -1,3 +1,10 @@
+/*
+	Christopher Pena
+	March 2, 2025
+	Purpose: A Human Resources Project
+	Sources: https://www.geeksforgeeks.org/overriding-equals-method-in-java/
+*/
+
 // Human Resources
 
 /*
@@ -9,18 +16,23 @@ answer the following questions:
 
 Q1: Car and Engine are related
 by which, Inheritance or Composition?
+Composition.
 
 Q2: Color and Red are related
 by which, Inheritance or Composition?
+Inheritance
 
 Q3: Shirt and Clothing are related
 by which, Inheritance or Composition?
+Inheritance
 
 Q4: Furniture and Desk are related
 by which, Inheritance or Composition?
+Inheritance
 
 Q5: CellPhone and Battery are related
 by which, Inheritance or Composition?
+Composition
 
 */
 import java.io.File;
@@ -31,35 +43,44 @@ import java.util.Scanner;
 public class Main 
 {
 	public static void main(String[] args) 
-	{
-		
+	{		
 		System.out.println();
 		
-		/*
-		// Don't overcomplicate the data
-		// reading. After skipping the
-		// first row, you can use the 
-		// following to read a row of
-		// character info, assuming your
-		// Scanner is named "fileReader"
-		String name = fileReader.next();
-		double height = fileReader.nextDouble();
-		double weight = fileReader.nextDouble();
-		*/
+		Person test = new Person("Jesus Christ", 155, 90); // creates Jesus Christ
+		System.out.println("Test: " + test); // test print
 		
+		PersonSet personSet = new PersonSet(); // creates set
+		personSet.add(test); // sets Jesus Christ
 		
-		
-		/*try
-		{	
-			FileWriter fileWriterOrder = new FileWriter("outputfile.txt");
-			fileWriterOrder.write("testing");
-			fileWriterOrder.close();
-		}
-		catch(IOException e)
+		try
 		{
-			e.printStackTrace();
-			System.out.println(e);
+			File doc = new File("hr.txt");
+			Scanner fileReader = new Scanner(doc); // looks for hr.txt
+			
+			if (fileReader.hasNextLine()) // skips header
+			{
+				fileReader.nextLine();
+			}
+			
+			while (fileReader.hasNext())
+			{
+				String name = fileReader.next(); // defines variables
+				int height = fileReader.nextInt();
+				int weight = fileReader.nextInt();
+				
+				Person person = new Person(name, height, weight); // creates person based off text
+				personSet.add(person);
+			}
+			fileReader.close();
+		}
+		catch (IOException f)
+		{
+			f.printStackTrace();
+			System.out.println(f);
 			System.exit(1);
-		}*/
+		}
+		
+		System.out.println("\nData from PersonSet: "); // prints dataset
+		System.out.println(personSet);
 	}
 }
